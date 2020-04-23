@@ -7,9 +7,10 @@ eBook Library Parser
 from dataclasses import dataclass
 from pathlib import Path
 from sys import argv
-from typing import Tuple
+from typing import Generator, Optional, Tuple
 
 store = Path("/home/mohh/Downloads/eBooks/English/all")
+supported_formats = ("epub", "pdf")
 
 
 @dataclass(order=True)
@@ -21,23 +22,23 @@ class Ebook:
         self.filename = self.path.name
         divider = self.filename.find("-")
         self.title = self.path.stem[:divider].replace("_", " ")
-        self.isbn = self.path.stem[divider + 1 :]
+        self.isbn = self.path.stem[divider + 1:]
         self.extension = self.path.suffix
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.isbn:>25} {self.title}{self.extension}"
 
 
 @dataclass
 class Library:
     directory: Path
-    book_types: Tuple[str] = ("epub", "pdf")
+    book_types: Tuple[str, str] = supported_formats
 
     @property
-    def books(self):
+    def books(self) -> Generator:
         yield from sorted(Ebook(book) for book in self.directory.iterdir())
 
-    def report(self, search=None, ext=None):
+    def report(self, search: Optional[str] = None, ext: Optional[str] = None) -> None:
         header = f"Library Report {'[' + ext + ']' if ext else ''}"
         header += f"{'search: ' + search if search else '':>{80 - len(header)}}\n"
         header += f"{'-' * 80}"
@@ -66,6 +67,7 @@ class Library:
 def main(loc: Path = store):
     library = Library(loc)
     args = argv
+    # added for testing...
     if "pytest" in args[0]:
         args = ["test", "computer vision", "pdf"]
 
