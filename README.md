@@ -8,6 +8,7 @@
 [![GitHub forks][fork-image]][fork-url]
 [![GitHub Stars][stars-image]][stars-url]
 [![License][license-image]][license-url]
+[![Twitter][twitter-image]][twitter-url]
 
 NOTE: This project was generated with [Cookiecutter](https://github.com/audreyr/cookiecutter) along with [@clamytoe's](https://github.com/clamytoe) [toepack](https://github.com/clamytoe/toepack) project template.
 
@@ -85,5 +86,7 @@ If you encounter any problems, please [file an issue](https://github.com/clamyto
 [fork-url]:https://github.com/clamytoe/pybrary/network
 [stars-image]:https://img.shields.io/github/stars/clamytoe/pybrary.svg
 [stars-url]:https://github.com/clamytoe/pybrary/stargazers
-[license-image]:https://img.shields.io/github/license/clamytoe/pybrary.svg
+[license-image]:https://img.shields.io/badge/license-MIT-blue.svg
 [license-url]:https://github.com/clamytoe/pybrary/blob/master/LICENSE
+[twitter-image]:https://img.shields.io/twitter/url/https/github.com/clamytoe/pybrary.svg?style=social
+[twitter-url]:https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D
