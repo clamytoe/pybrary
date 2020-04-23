@@ -48,10 +48,39 @@ pip install -e .
 ## Usage
 
 ```zsh
-pybrary
+pybrary [search term] [extension]
 ```
 
-The output should be: `Successfully installed your project file: pybrary`
+If nothing is passed as commandline arguments, it will display a list of all the ebooks that were found.
+
+```zsh
+pybrary
+Library Report                                                                  
+--------------------------------------------------------------------------------
+10-1007-978-3-030-20290-3 A Beginners Guide to Python 3 Programming.epub
+10-1007-978-3-030-20290-3 A Beginners Guide to Python 3 Programming.pdf
+10-1007-978-0-387-93837-0 A Beginners Guide to R.epub
+10-1007-978-0-387-93837-0 A Beginners Guide to R.pdf
+...
+10-1007-978-3-319-74965-5 Witnessing Torture.epub
+10-1007-978-3-319-74965-5 Witnessing Torture.pdf
+10-1007-978-3-319-31650-5 Writing for Publication.epub
+10-1007-978-3-319-31650-5 Writing for Publication.pdf
+```
+
+If you enter either **epub** or **pdf**, it will filter the results to only show the format that you entered.
+if you enter only a *search term* the results will include both book formats.
+If you enter a *search term* as well as an ebook type, it will filter them appropriately.
+
+> **NOTE**: If your search term includes more then one word, wrap them in quotes!
+
+```zsh
+pybrary "machine learning" pdf      
+Library Report [pdf]                                    search: machine learning
+--------------------------------------------------------------------------------
+10-1007-978-3-319-63913-0 An Introduction to Machine Learning.pdf
+10-1007-978-3-319-15195-3 Machine Learning in Medicine  a Complete Overview.pdf 
+``` 
 
 ## Contributing
 
@@ -76,10 +105,11 @@ If you encounter any problems, please [file an issue](https://github.com/clamyto
 
 ## Changelog
 
+* **v0.1.1** Added the code and tests.
 * **v0.1.0** Initial commit.
 
 [python-version]:https://img.shields.io/badge/python-3.8-brightgreen.svg
-[latest-version]:https://img.shields.io/badge/version-0.1.0-blue.svg
+[latest-version]:https://img.shields.io/badge/version-0.1.1-blue.svg
 [issues-image]:https://img.shields.io/github/issues/clamytoe/pybrary.svg
 [issues-url]:https://github.com/clamytoe/pybrary/issues
 [fork-image]:https://img.shields.io/github/forks/clamytoe/pybrary.svg
